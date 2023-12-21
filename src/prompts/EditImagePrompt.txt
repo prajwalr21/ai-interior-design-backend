@@ -1,0 +1,1 @@
+Use the provided image as canvas, and produce an interior design with style being {{}}, primary color being {{}} and secondary color being {{}}.
