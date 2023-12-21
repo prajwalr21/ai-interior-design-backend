@@ -4,9 +4,17 @@ import OpenAI from "openai"
 import fs from "fs"
 import path from 'path'
 import { OPENAI_API_KEY } from "../env";
+import streamifier from 'streamifier'
+import MemoryStream from "memorystream";
+import {Readable} from 'stream'
+import { FileLike } from "openai/uploads.mjs";
 
 export const postHandler = async (req: Request, res: Response) => {
     try {
+        // console.log(req.file)
+        // const fileBuf = req.file?.buffer
+        // const blob = new Blob([fileBuf ?? Buffer.from('')])
+        // console.log(blob)
         const imageParameters = Object.keys(req.body)
         const argsForPrompt = imageParameters.map(param => req.body[param])
         const prompt = getPrompt(argsForPrompt)
@@ -14,11 +22,14 @@ export const postHandler = async (req: Request, res: Response) => {
     
         const openai = new OpenAI({
             apiKey: OPENAI_API_KEY,
-            // maxRetries: 3
         })
         const imageFilePath = path.join(process.cwd(), 'tmp', 'image-file.png');
-        // const maskFilePath = path.join(process.cwd(), 'public', 'mask.png');
-        // console.log(imageFilePath, maskFilePath)
+        // const readableStream = streamifier.createReadStream(fileBuf ?? Buffer.from(''))
+        // const inMemoryBuffer = await streamifier.(inMemoryStream);
+
+        // Use fs.createReadStream on the in-memory buffer
+        // const imageStream = fs.createReadStream(inMemoryBuffer);
+        // console.log(readableStream)
         const image = await openai.images.edit({
             image: fs.createReadStream(imageFilePath),
             prompt,
