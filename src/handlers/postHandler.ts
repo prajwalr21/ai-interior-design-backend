@@ -23,7 +23,7 @@ export const postHandler = async (req: Request, res: Response) => {
         const openai = new OpenAI({
             apiKey: OPENAI_API_KEY,
         })
-        const imageFilePath = path.join('tmp', 'image-file.png');
+        const imageFilePath = path.join('/tmp', 'image-file.png');
         // const readableStream = streamifier.createReadStream(fileBuf ?? Buffer.from(''))
         // const inMemoryBuffer = await streamifier.(inMemoryStream);
 
