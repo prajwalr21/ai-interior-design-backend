@@ -10,7 +10,7 @@ app.use(cors)
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(process.cwd(), 'tmp'));
+        cb(null, path.join('tmp'));
     },
     filename: (req, file, cb) => {
         cb(null, 'image-file.png')
