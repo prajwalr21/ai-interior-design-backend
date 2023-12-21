@@ -10,7 +10,7 @@ const app = express()
 app.use(express.json())
 app.use(cors)
 
-execSync('chmod 777 /tmp/image-file.png')
+execSync(`chmod 777 ${path.join(process.cwd(), '/tmp/image-file.png')}`)
 
 console.log('Added file permissions')
 
