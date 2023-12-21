@@ -11,7 +11,7 @@ app.use(cors)
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(process.cwd(), '/public/'));
+        cb(null, path.join(process.cwd(), '/tmp/'));
     },
     filename: (req, file, cb) => {
         cb(null, 'image-file.png')
