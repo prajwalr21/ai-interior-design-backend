@@ -17,8 +17,8 @@ export const postHandler = async (req: Request, res: Response) => {
             // maxRetries: 3
         })
         const imageFilePath = path.join(process.cwd(), 'public', 'image-file.png');
-        const maskFilePath = path.join(process.cwd(), 'public', 'mask.png');
-        console.log(imageFilePath, maskFilePath)
+        // const maskFilePath = path.join(process.cwd(), 'public', 'mask.png');
+        // console.log(imageFilePath, maskFilePath)
         const image = await openai.images.edit({
             image: fs.createReadStream(imageFilePath),
             prompt,
