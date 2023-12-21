@@ -42,5 +42,8 @@ export const postHandler = async (req: Request, res: Response) => {
     } catch(e) {
         const error = e as Error
         console.log(error)
+        res.status(200).json({
+            error
+        })
     }
 }
