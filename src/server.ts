@@ -17,8 +17,6 @@ const storage = multer.diskStorage({
     }
 });
 
-// const storage = multer.memoryStorage()
-
 console.log('Sending data to handler')
 const upload = multer({storage})
 
